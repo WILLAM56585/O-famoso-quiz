@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocolo Exclusivo para Você</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Barra de progresso global -->
+    <div class="progress-bar">
+        <div class="progress" id="global-progress"></div>
+    </div>
+
+    <!-- Seção 1 - Introdução -->
+    <div class="container" id="section-1">
+        <h1>Seu Protocolo de Transformação Personalizado Está Pronto!</h1>
+        <p>Baseado em milhares de casos de sucesso, criamos um plano exclusivo para você alcançar seus objetivos de saúde e bem-estar.</p>
+        
+        <div class="notification">
+            <span>🔒</span>
+            <span>Nota de Segurança: Seus dados estão protegidos com criptografia avançada. Valorizamos sua privacidade acima de tudo.</span>
+        </div>
+        
+        <button class="btn btn-large" onclick="nextSection(2)">Começar Minha Jornada</button>
+        
+        <div class="testimonial">
+            <div class="testimonial-content">
+                <p>"Perdi 12kg em 8 semanas seguindo este método! Nunca imaginei que seria possível me sentir tão bem com meu corpo."</p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Ana C.">
+                    <span>Ana C., 34 anos</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Seção 2 - Peso Atual -->
+    <div class="container" id="section-2" style="display: none;">
+        <h1>Vamos começar com seu peso atual</h1>
+        <p>Esta informação nos ajudará a calibrar seu plano personalizado com precisão.</p>
+        
+        <input type="number" id="weight-input" placeholder="Digite seu peso em kg" min="40" max="200" required>
+        <p id="error-message" class="error-message">Por favor, insira um peso válido entre 40kg e 200kg.</p>
+        
+        <button class="btn btn-large" onclick="validateWeight()">Próximo Passo</button>
+        
+        <div class="guarantee-badge">
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png" alt="Garantia">
+            <span class="guarantee-text">Seu progresso é nossa prioridade. Comprometidos com seus resultados.</span>
+        </div>
+    </div>
+
+    <!-- Seção 3 - Objetivo de Peso -->
+    <div class="container" id="section-3" style="display: none;">
+        <h1>Qual é o seu objetivo de peso?</h1>
+        <p>Deslize para selecionar o peso que deseja alcançar. Lembre-se: metas realistas levam a resultados sustentáveis.</p>
+        
+        <input type="range" min="40" max="130" value="70" id="pesoSlider" oninput="updatePesoValue(this.value)">
+        <p>Seu objetivo: <strong><span id="pesoValue">70</span> kg</strong></p>
+        
+        <button class="btn btn-large" onclick="nextSection(4)">Definir Objetivo</button>
+        
+        <div class="benefits">
+            <p>Nosso sistema ajustará automaticamente seu plano conforme você progride</p>
+            <p>Receba orientações específicas para alcançar seu peso ideal com saúde</p>
+            <p>Acompanhamento contínuo para garantir que você atinja sua meta</p>
+        </div>
+    </div>
+
+    <!-- Seção 4 - Satisfação Corporal -->
+    <div class="container" id="section-4" style="display: none;">
+        <h1>Como você se sente em relação ao seu corpo atualmente?</h1>
+        <p>Esta informação nos ajuda a personalizar seu suporte emocional e motivacional.</p>
+        
+        <div class="grid">
+            <div class="card" onclick="selectSingleCard(this); nextSection(5);">
+                <span>😭 Me sinto horrível e com muitas inseguranças</span>
+            </div>
+            <div class="card" onclick="selectSingleCard(this); nextSection(5);">
+                <span>🥺 Não me sinto bem, mas quero mudar</span>
+            </div>
+            <div class="card" onclick="selectSingleCard(this); nextSection(5);">
+                <span>😐 Estou satisfeita, mas quero melhorar</span>
+            </div>
+            <div class="card" onclick="selectSingleCard(this); nextSection(5);">
+                <span>😁 Me sinto bem e quero manter/otimizar</span>
+            </div>
+        </div>
+        
+        <div class="testimonial">
+            <div class="testimonial-content">
+                <p>"A abordagem holística me ajudou não só a perder peso, mas a me reconciliar com meu corpo e minha autoimagem."</p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Mariana L.">
+                    <span>Mariana L., 28 anos</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Seção 5 - Motivação -->
+    <div class="container" id="section-5" style="display: none;">
+        <h1>Por que alcançar seu peso ideal é importante para você?</h1>
+        <p>Selecione todas as opções que se aplicam. Isso nos ajudará a manter você motivada.</p>
+        
+        <div class="grid">
+            <div class="card" onclick="toggleCardSelection(this)">
+                <span>🏊‍♀️ Ficar com um corpo definido para o verão!</span>
+            </div>
+            <div class="card" onclick="toggleCardSelection(this)">
+                <span>👩‍❤️‍👨 Melhorar meu relacionamento e autoestima</span>
+            </div>
+            <div class="card" onclick="toggleCardSelection(this)">
+                <span>💊 Ter mais saúde e disposição</span>
+            </div>
+            <div class="card" onclick="toggleCardSelection(this)">
+                <span>👗 Caber melhor nas minhas roupas favoritas</span>
+            </div>
+            <div class="card" onclick="toggleCardSelection(this)">
+                <span>🌟 Todas as opções acima!</span>
+            </div>
+        </div>
+        
+        <button class="btn btn-large" onclick="nextSection(6)">Continuar</button>
+    </div>
+
+    <!-- Seção 6 - Exercícios -->
+    <div class="container" id="section-6" style="display: none;">
+        <h1>Com que frequência você se exercita atualmente?</h1>
+        <p>Não se preocupe se for pouco - vamos criar um plano que se adapte ao seu ritmo.</p>
+        
+        <div class="grid">
+            <div class="card" onclick="selectSingleCard(this); nextSection(7);">
+                <span>🚴‍♀️ Diariamente ou quase todos os dias</span>
+            </div>
+            <div class="card" onclick="selectSingleCard(this); nextSection(7);">
+                <span>🤸‍♂️ 3-4 vezes por semana</span>
+            </div>
+            <div class="card" onclick="selectSingleCard(this); nextSection(7);">
+                <span>🧘‍♀️ 1-2 vezes por semana</span>
+            </div>
+            <div class="card" onclick="selectSingleCard(this); nextSection(7);">
+                <span>📅 Raramente ou nunca</span>
+            </div>
+        </div>
+        
+        <div class="notification">
+            <span>💡</span>
+            <span>Nosso método se adapta ao seu nível de atividade atual, sem exigências impossíveis.</span>
+        </div>
+    </div>
+
+    <!-- Seção 7 - Água -->
+    <div class="container" id="section-7" style="display: none;">
+        <h1>Quantidade de água consumida diariamente</h1>
+        <p>A hidratação adequada é fundamental para o sucesso do seu plano.</p>
+        
+        <div class="grid">
+            <div class="card" onclick="selectSingleCard(this); nextSection(8);">
+                <span>☕ Apenas chá ou café (quase não bebo água pura)</span>
+            </div>
+            <div class="card" onclick="selectSingleCard(this); nextSection(8);">
+                <span>🚰 1-3 copos por dia</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
